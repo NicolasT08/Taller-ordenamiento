@@ -1,0 +1,10 @@
+D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\bin\Debug\Taller2.exe.config
+D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\bin\Debug\Taller2.exe
+D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\bin\Debug\Taller2.pdb
+D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\obj\Debug\Taller2.csproj.AssemblyReference.cache
+D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\obj\Debug\Taller2.Form1.resources
+D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\obj\Debug\Taller2.Properties.Resources.resources
+D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\obj\Debug\Taller2.csproj.GenerateResource.cache
+D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\obj\Debug\Taller2.csproj.CoreCompileInputs.cache
+D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\obj\Debug\Taller2.exe
+D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\obj\Debug\Taller2.pdb
