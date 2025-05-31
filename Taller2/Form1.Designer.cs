@@ -30,16 +30,25 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,6 +68,7 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart6 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart7 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
@@ -66,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart7)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -144,11 +155,15 @@
             this.chart1.Location = new System.Drawing.Point(574, 41);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(276, 200);
             this.chart1.TabIndex = 14;
             this.chart1.Text = "Aleatorios";
+            title1.Name = "Title1";
+            title1.Text = "Aleatorio";
+            this.chart1.Titles.Add(title1);
             // 
             // chart2
             // 
@@ -162,6 +177,9 @@
             this.chart2.Size = new System.Drawing.Size(272, 200);
             this.chart2.TabIndex = 15;
             this.chart2.Text = "slightlyasc";
+            title2.Name = "Title1";
+            title2.Text = "levemente ordenados ascendente";
+            this.chart2.Titles.Add(title2);
             // 
             // chart3
             // 
@@ -175,6 +193,9 @@
             this.chart3.Size = new System.Drawing.Size(284, 200);
             this.chart3.TabIndex = 16;
             this.chart3.Text = "slightdesc";
+            title3.Name = "Title1";
+            title3.Text = "levemente ordenados decendente";
+            this.chart3.Titles.Add(title3);
             // 
             // chart4
             // 
@@ -188,6 +209,9 @@
             this.chart4.Size = new System.Drawing.Size(276, 200);
             this.chart4.TabIndex = 17;
             this.chart4.Text = "orderer";
+            title4.Name = "Title1";
+            title4.Text = "ordenados ascendente";
+            this.chart4.Titles.Add(title4);
             // 
             // dataGridView1
             // 
@@ -243,6 +267,9 @@
             this.chart5.Size = new System.Drawing.Size(272, 200);
             this.chart5.TabIndex = 21;
             this.chart5.Text = "heapsort";
+            title5.Name = "Title1";
+            title5.Text = "HeapSort";
+            this.chart5.Titles.Add(title5);
             // 
             // chart6
             // 
@@ -256,12 +283,32 @@
             this.chart6.Size = new System.Drawing.Size(284, 200);
             this.chart6.TabIndex = 22;
             this.chart6.Text = "bubblesort";
+            title6.Name = "Title1";
+            title6.Text = "BubbleSort";
+            this.chart6.Titles.Add(title6);
+            // 
+            // chart7
+            // 
+            chartArea7.Name = "ChartArea1";
+            this.chart7.ChartAreas.Add(chartArea7);
+            this.chart7.Location = new System.Drawing.Point(574, 453);
+            this.chart7.Name = "chart7";
+            series7.ChartArea = "ChartArea1";
+            series7.Name = "Series1";
+            this.chart7.Series.Add(series7);
+            this.chart7.Size = new System.Drawing.Size(284, 200);
+            this.chart7.TabIndex = 23;
+            this.chart7.Text = "bubblesort";
+            title7.Name = "Title1";
+            title7.Text = "Comparacion HeapSort y BubbleSort";
+            this.chart7.Titles.Add(title7);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1442, 674);
+            this.Controls.Add(this.chart7);
             this.Controls.Add(this.chart6);
             this.Controls.Add(this.chart5);
             this.Controls.Add(this.dataGridView1);
@@ -286,6 +333,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,6 +360,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart5;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart6;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart7;
     }
 }
 

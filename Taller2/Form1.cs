@@ -20,7 +20,7 @@ namespace Taller2
         List<int> slightlyAscend = new List<int>();
         List<int> slightlyDescend = new List<int>();
         List<int> orderer = new List<int>();
-        List<int> dataTime = new List<int>();
+        List<double> dataTime = new List<double>();
         Random random = new Random();
 
         public Form1()
@@ -53,8 +53,8 @@ namespace Taller2
             {
                 dataGridView1.Rows.Add(
                     etiquetas[i] + i,
-                    stopwatch.Elapsed.Seconds.ToString() + ": " + stopwatch.Elapsed.Milliseconds.ToString(),
-                    stopwatch.ElapsedMilliseconds.ToString(),
+                    dataTime[i].ToString("F5"),
+                    (dataTime[i] * 1000).ToString("F2") + " ms",
                     size.ToString()
                 );
             }
@@ -74,7 +74,7 @@ namespace Taller2
             }
 
             stopwatch.Stop();
-            dataTime.Add(stopwatch.Elapsed.Seconds);
+            dataTime.Add(stopwatch.Elapsed.TotalSeconds);
 
 
             //ordanado levemente ascendentemente
@@ -95,7 +95,7 @@ namespace Taller2
                 slightlyAscend.AddRange(block);
             }
             stopwatch.Stop();
-            dataTime.Add(stopwatch.Elapsed.Seconds);
+            dataTime.Add(stopwatch.Elapsed.TotalSeconds);
             foreach (var val in slightlyAscend)
                 chart2.Series[0].Points.Add(val);
 
@@ -117,7 +117,7 @@ namespace Taller2
                 slightlyDescend.AddRange(block);
             }
             stopwatch.Stop();
-            dataTime.Add(stopwatch.Elapsed.Seconds);
+            dataTime.Add(stopwatch.Elapsed.TotalSeconds);
             foreach (var val in slightlyDescend)
                 chart3.Series[0].Points.Add(val);
 
@@ -129,7 +129,7 @@ namespace Taller2
             orderer = new List<int>(allRandoms);
             orderer.Sort();
             stopwatch.Stop();
-            dataTime.Add(stopwatch.Elapsed.Seconds);
+            dataTime.Add(stopwatch.Elapsed.TotalSeconds);
             foreach (var val in orderer)
                 chart4.Series[0].Points.Add(val);
         }
@@ -138,6 +138,8 @@ namespace Taller2
         {
             int[] dataForHeap = (int[])allRandoms.ToArray().Clone();
             int[] dataForBubble = (int[])allRandoms.ToArray().Clone();
+            int heapSortTime = 0;
+            int bubbleSortTime = 0;
 
             stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -145,9 +147,12 @@ namespace Taller2
             HeapSort(dataForHeap);
 
             stopwatch.Stop();
-            dataTime.Add(stopwatch.Elapsed.Seconds);
+            heapSortTime = (int)stopwatch.ElapsedMilliseconds;
+            dataTime.Add(stopwatch.Elapsed.TotalSeconds);
             foreach (var val in dataForHeap)
                 chart5.Series[0].Points.Add(val);
+
+
 
             stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -155,9 +160,16 @@ namespace Taller2
             var resultBubble = BubbleSort(dataForBubble);
 
             stopwatch.Stop();
-            dataTime.Add(stopwatch.Elapsed.Seconds);
+            bubbleSortTime = (int)stopwatch.ElapsedMilliseconds;
+            dataTime.Add(stopwatch.Elapsed.TotalSeconds);
             foreach (var val in resultBubble)
                 chart6.Series[0].Points.Add(val);
+
+
+            chart7.Series[0].Points.Clear();
+            chart7.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            chart7.Series[0].Points.AddXY("HeapSort", heapSortTime);
+            chart7.Series[0].Points.AddXY("BubbleSort", bubbleSortTime);
         }
 
         void clearCharts()
@@ -168,9 +180,12 @@ namespace Taller2
             chart4.Series[0].Points.Clear();
             chart5.Series[0].Points.Clear();
             chart6.Series[0].Points.Clear();
+            chart7.Series[0].Points.Clear();
+            dataGridView1.Rows.Clear();
             allRandoms.Clear();
             slightlyAscend.Clear();
             slightlyDescend.Clear();
+            dataTime.Clear();
         }
 
         int[] BubbleSort(int[] inputArray)
