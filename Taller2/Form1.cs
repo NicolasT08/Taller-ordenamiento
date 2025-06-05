@@ -76,6 +76,9 @@ namespace Taller2
             stopwatch.Stop();
             dataTime.Add(stopwatch.Elapsed.TotalSeconds);
 
+            // Calcular y mostrar estadísticas para datos aleatorios
+            var randomStats = dataGroup.CalculateStatistics(allRandoms);
+            DisplayStatisticsInGrid(dataGridAle, randomStats);
 
             //ordanado levemente ascendentemente
             stopwatch = new Stopwatch();
@@ -99,6 +102,9 @@ namespace Taller2
             foreach (var val in slightlyAscend)
                 chart2.Series[0].Points.Add(val);
 
+            // Calcular y mostrar estadísticas para datos levemente ascendentes
+            var ascStats = dataGroup.CalculateStatistics(slightlyAscend);
+            DisplayStatisticsInGrid(dataGridLOA, ascStats);
 
             //ordanado levemente descendentemente
             stopwatch = new Stopwatch();
@@ -121,6 +127,9 @@ namespace Taller2
             foreach (var val in slightlyDescend)
                 chart3.Series[0].Points.Add(val);
 
+            // Calcular y mostrar estadísticas para datos levemente descendentes
+            var descStats = dataGroup.CalculateStatistics(slightlyDescend);
+            DisplayStatisticsInGrid(dataGridLOD, descStats);
 
             //ordenado
             stopwatch = new Stopwatch();
@@ -132,6 +141,26 @@ namespace Taller2
             dataTime.Add(stopwatch.Elapsed.TotalSeconds);
             foreach (var val in orderer)
                 chart4.Series[0].Points.Add(val);
+
+            // Calcular y mostrar estadísticas para datos ordenados
+            var orderedStats = dataGroup.CalculateStatistics(orderer);
+            DisplayStatisticsInGrid(dataGridORD, orderedStats);
+        }
+
+        private void DisplayStatisticsInGrid(DataGridView grid, Dictionary<string, double> stats)
+        {
+            grid.Rows.Clear();
+            grid.Columns.Clear();
+
+            // Configurar columnas
+            grid.Columns.Add("Estadística", "Estadística");
+            grid.Columns.Add("Valor", "Valor");
+
+            // Agregar filas con los datos
+            foreach (var stat in stats)
+            {
+                grid.Rows.Add(stat.Key, stat.Value.ToString("F2"));
+            }
         }
 
         void sorts()
@@ -220,6 +249,132 @@ namespace Taller2
 
                 Heapify(arr, i, 0);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(inputSearch.Text))
+            {
+                infoSearch.Text = "Por favor ingrese un valor a buscar";
+                return;
+            }
+
+            if (!int.TryParse(inputSearch.Text, out int searchValue))
+            {
+                infoSearch.Text = "Por favor ingrese un número válido";
+                return;
+            }
+
+            // Limpiar los DataGridViews y Charts
+            ClearSearchGrids();
+            ClearSearchCharts();
+
+            // Configurar los DataGridViews
+            ConfigureSearchGrids();
+
+            // Realizar búsquedas en cada conjunto de datos
+            var times = new Dictionary<string, (double linear, double interpol, bool found)>();
+            bool foundInAny = false;
+            
+            var result1 = PerformSearches(allRandoms, dataGridTAL, "Aleatorios", searchValue);
+            times["Aleatorios"] = result1;
+            foundInAny |= result1.found;
+
+            var result2 = PerformSearches(slightlyAscend, dataGridTLOA, "Levemente Ascendente", searchValue);
+            times["Levemente Asc"] = result2;
+            foundInAny |= result2.found;
+
+            var result3 = PerformSearches(slightlyDescend, dataGridTLOD, "Levemente Descendente", searchValue);
+            times["Levemente Desc"] = result3;
+            foundInAny |= result3.found;
+
+            var result4 = PerformSearches(orderer, dataGridTOA, "Ordenados", searchValue);
+            times["Ordenados"] = result4;
+            foundInAny |= result4.found;
+
+            // Actualizar los gráficos
+            UpdateSearchCharts(times);
+
+            // Actualizar mensaje según si se encontró o no el valor
+            if (!foundInAny)
+            {
+                infoSearch.Text = $"El valor {searchValue} no se encontró en ningún conjunto de datos";
+            }
+        }
+
+        private void ClearSearchGrids()
+        {
+            dataGridTAL.Rows.Clear();
+            dataGridTLOA.Rows.Clear();
+            dataGridTLOD.Rows.Clear();
+            dataGridTOA.Rows.Clear();
+        }
+
+        private void ClearSearchCharts()
+        {
+            chartBlineal.Series[0].Points.Clear();
+            chartIS.Series[0].Points.Clear();
+        }
+
+        private void ConfigureSearchGrids()
+        {
+            string[] grids = { "dataGridTAL", "dataGridTLOA", "dataGridTLOD", "dataGridTOA" };
+            foreach (string gridName in grids)
+            {
+                DataGridView grid = Controls.Find(gridName, true).FirstOrDefault() as DataGridView;
+                if (grid != null)
+                {
+                    grid.Columns.Clear();
+                    grid.Columns.Add("Algoritmo", "Algoritmo");
+                    grid.Columns.Add("Tiempo", "Tiempo (ms)");
+                    grid.Columns["Tiempo"].DefaultCellStyle.Format = "F6";
+                }
+            }
+        }
+
+        private void UpdateSearchCharts(Dictionary<string, (double linear, double interpol, bool found)> times)
+        {
+            // Configurar gráfico de búsqueda lineal
+            chartBlineal.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            chartBlineal.Series[0].Name = "";
+            chartBlineal.Series[0].IsVisibleInLegend = false;
+            chartBlineal.Legends[0].Enabled = false;
+            chartBlineal.ChartAreas[0].AxisX.Title = "Conjunto de Datos";
+            chartBlineal.ChartAreas[0].AxisY.Title = "Tiempo (ms)";
+
+            // Configurar gráfico de búsqueda por interpolación
+            chartIS.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            chartIS.Series[0].Name = "";
+            chartIS.Series[0].IsVisibleInLegend = false;
+            chartIS.Legends[0].Enabled = false;
+            chartIS.ChartAreas[0].AxisX.Title = "Conjunto de Datos";
+            chartIS.ChartAreas[0].AxisY.Title = "Tiempo (ms)";
+
+            // Agregar datos a los gráficos
+            foreach (var kvp in times)
+            {
+                chartBlineal.Series[0].Points.AddXY(kvp.Key, kvp.Value.linear);
+                chartIS.Series[0].Points.AddXY(kvp.Key, kvp.Value.interpol);
+            }
+        }
+
+        private (double linear, double interpol, bool found) PerformSearches(List<int> data, DataGridView grid, string dataType, int searchValue)
+        {
+            // Búsqueda Lineal
+            var linearResult = search.LinearSearch(data, searchValue);
+            grid.Rows.Add("Lineal", linearResult.time.ToString("F6"));
+
+            // Búsqueda por Interpolación
+            var interpolationResult = search.InterpolationSearch(data, searchValue);
+            grid.Rows.Add("Interpolar", interpolationResult.time.ToString("F6"));
+
+            // Actualizar el mensaje de información si se encontró el valor
+            if (linearResult.found || interpolationResult.found)
+            {
+                infoSearch.Text = $"Valor {searchValue} encontrado en {dataType}";
+            }
+
+            return (linearResult.time, interpolationResult.time, linearResult.found || interpolationResult.found);
         }
 
         private void Heapify(int[] arr, int n, int i)
