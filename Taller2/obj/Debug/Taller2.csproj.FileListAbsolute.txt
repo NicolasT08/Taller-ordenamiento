@@ -8,3 +8,13 @@ D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\obj\De
 D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\obj\Debug\Taller2.csproj.CoreCompileInputs.cache
 D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\obj\Debug\Taller2.exe
 D:\NickG\Documentos\Programacion\uni\matematica discretas\Taller2\Taller2\obj\Debug\Taller2.pdb
+C:\Users\josel\Repositories\Taller-ordenamiento\Taller2\bin\Debug\Taller2.exe.config
+C:\Users\josel\Repositories\Taller-ordenamiento\Taller2\bin\Debug\Taller2.exe
+C:\Users\josel\Repositories\Taller-ordenamiento\Taller2\bin\Debug\Taller2.pdb
+C:\Users\josel\Repositories\Taller-ordenamiento\Taller2\obj\Debug\Taller2.csproj.AssemblyReference.cache
+C:\Users\josel\Repositories\Taller-ordenamiento\Taller2\obj\Debug\Taller2.Form1.resources
+C:\Users\josel\Repositories\Taller-ordenamiento\Taller2\obj\Debug\Taller2.Properties.Resources.resources
+C:\Users\josel\Repositories\Taller-ordenamiento\Taller2\obj\Debug\Taller2.csproj.GenerateResource.cache
+C:\Users\josel\Repositories\Taller-ordenamiento\Taller2\obj\Debug\Taller2.csproj.CoreCompileInputs.cache
+C:\Users\josel\Repositories\Taller-ordenamiento\Taller2\obj\Debug\Taller2.exe
+C:\Users\josel\Repositories\Taller-ordenamiento\Taller2\obj\Debug\Taller2.pdb

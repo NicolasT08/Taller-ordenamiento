@@ -1,14 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\NickG\\Documentos\\Programacion\\uni\\matematica discretas\\Taller2\\",
+  "WorkspaceRootPath": "C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{16DBCF28-B829-4F65-BD5F-955DB7280F24}|Taller2\\Taller2.csproj|d:\\nickg\\documentos\\programacion\\uni\\matematica discretas\\taller2\\taller2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{16DBCF28-B829-4F65-BD5F-955DB7280F24}|Taller2\\Taller2.csproj|C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\taller2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{16DBCF28-B829-4F65-BD5F-955DB7280F24}|Taller2\\Taller2.csproj|solutionrelative:taller2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16DBCF28-B829-4F65-BD5F-955DB7280F24}|Taller2\\Taller2.csproj|D:\\NickG\\Documentos\\Programacion\\uni\\matematica discretas\\Taller2\\taller2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{16DBCF28-B829-4F65-BD5F-955DB7280F24}|Taller2\\Taller2.csproj|c:\\users\\josel\\repositories\\taller-ordenamiento\\taller2\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16DBCF28-B829-4F65-BD5F-955DB7280F24}|Taller2\\Taller2.csproj|solutionrelative:taller2\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16DBCF28-B829-4F65-BD5F-955DB7280F24}|Taller2\\Taller2.csproj|c:\\users\\josel\\repositories\\taller-ordenamiento\\taller2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{16DBCF28-B829-4F65-BD5F-955DB7280F24}|Taller2\\Taller2.csproj|solutionrelative:taller2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16DBCF28-B829-4F65-BD5F-955DB7280F24}|Taller2\\Taller2.csproj|c:\\users\\josel\\repositories\\taller-ordenamiento\\taller2\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16DBCF28-B829-4F65-BD5F-955DB7280F24}|Taller2\\Taller2.csproj|solutionrelative:taller2\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16DBCF28-B829-4F65-BD5F-955DB7280F24}|Taller2\\Taller2.csproj|C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\taller2\\datagroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16DBCF28-B829-4F65-BD5F-955DB7280F24}|Taller2\\Taller2.csproj|solutionrelative:taller2\\datagroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +30,74 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "search.cs",
+              "DocumentMoniker": "C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\Taller2\\search.cs",
+              "RelativeDocumentMoniker": "Taller2\\search.cs",
+              "ToolTip": "C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\Taller2\\search.cs",
+              "RelativeToolTip": "Taller2\\search.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAYwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T21:52:19.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\Taller2\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Taller2\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\Taller2\\Form1.Designer.cs",
+              "RelativeToolTip": "Taller2\\Form1.Designer.cs",
+              "ViewState": "AgIAABwDAAAAAAAAAAAewCgDAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T21:21:19.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "dataGroup.cs",
+              "DocumentMoniker": "C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\Taller2\\dataGroup.cs",
+              "RelativeDocumentMoniker": "Taller2\\dataGroup.cs",
+              "ToolTip": "C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\Taller2\\dataGroup.cs",
+              "RelativeToolTip": "Taller2\\dataGroup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T20:40:18.892Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\NickG\\Documentos\\Programacion\\uni\\matematica discretas\\Taller2\\Taller2\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\Taller2\\Form1.cs",
               "RelativeDocumentMoniker": "Taller2\\Form1.cs",
-              "ToolTip": "D:\\NickG\\Documentos\\Programacion\\uni\\matematica discretas\\Taller2\\Taller2\\Form1.cs",
+              "ToolTip": "C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\Taller2\\Form1.cs",
               "RelativeToolTip": "Taller2\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOwAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAF8BAAAAAAAAAAApwGsBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-30T15:42:49.715Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\NickG\\Documentos\\Programacion\\uni\\matematica discretas\\Taller2\\Taller2\\Form1.cs",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\Taller2\\Form1.cs",
               "RelativeDocumentMoniker": "Taller2\\Form1.cs",
-              "ToolTip": "D:\\NickG\\Documentos\\Programacion\\uni\\matematica discretas\\Taller2\\Taller2\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Taller2\\Form1.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\josel\\Repositories\\Taller-ordenamiento\\Taller2\\Form1.cs [Design]",
+              "RelativeToolTip": "Taller2\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-30T15:32:27.823Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "EditorCaption": " [Design]"
             }
           ]
         }
