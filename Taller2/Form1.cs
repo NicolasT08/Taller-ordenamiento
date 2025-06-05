@@ -37,7 +37,8 @@ namespace Taller2
             limitUp = Convert.ToInt32(textBox3.Text);
             
             generateData();
-            sorts();
+            heapSorting();
+            bubbleSorting();
 
             string[] etiquetas = new string[]
             {
@@ -45,8 +46,6 @@ namespace Taller2
                 "levemente Asc",
                 "levemente desc",
                 "ordenado",
-                "HeapSort",
-                "bubblesort"
             };
 
             for (int i = 0; i < dataTime.Count && i < etiquetas.Length; i++)
@@ -163,44 +162,6 @@ namespace Taller2
             }
         }
 
-        void sorts()
-        {
-            int[] dataForHeap = (int[])allRandoms.ToArray().Clone();
-            int[] dataForBubble = (int[])allRandoms.ToArray().Clone();
-            int heapSortTime = 0;
-            int bubbleSortTime = 0;
-
-            stopwatch = new Stopwatch();
-            stopwatch.Start();
-
-            HeapSort(dataForHeap);
-
-            stopwatch.Stop();
-            heapSortTime = (int)stopwatch.ElapsedMilliseconds;
-            dataTime.Add(stopwatch.Elapsed.TotalSeconds);
-            foreach (var val in dataForHeap)
-                chart5.Series[0].Points.Add(val);
-
-
-
-            stopwatch = new Stopwatch();
-            stopwatch.Start();
-
-            var resultBubble = BubbleSort(dataForBubble);
-
-            stopwatch.Stop();
-            bubbleSortTime = (int)stopwatch.ElapsedMilliseconds;
-            dataTime.Add(stopwatch.Elapsed.TotalSeconds);
-            foreach (var val in resultBubble)
-                chart6.Series[0].Points.Add(val);
-
-
-            chart7.Series[0].Points.Clear();
-            chart7.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            chart7.Series[0].Points.AddXY("HeapSort", heapSortTime);
-            chart7.Series[0].Points.AddXY("BubbleSort", bubbleSortTime);
-        }
-
         void clearCharts()
         {
             chart1.Series[0].Points.Clear();
@@ -209,13 +170,139 @@ namespace Taller2
             chart4.Series[0].Points.Clear();
             chart5.Series[0].Points.Clear();
             chart6.Series[0].Points.Clear();
-            chart7.Series[0].Points.Clear();
             dataGridView1.Rows.Clear();
+            dataGridView2.Rows.Clear();
+            dataGridView3.Rows.Clear();
+            dataGridView4.Rows.Clear();
+            dataGridView5.Rows.Clear();
             allRandoms.Clear();
             slightlyAscend.Clear();
             slightlyDescend.Clear();
             dataTime.Clear();
         }
+
+        void heapSorting()
+        {
+            Dictionary<string, List<int>> datasets = new Dictionary<string, List<int>>()
+            {
+                { "Random", allRandoms },
+                { "Levemente Asc", slightlyAscend },
+                { "Levemente Desc", slightlyDescend },
+                { "Ordenado", orderer }
+            };
+
+            foreach (var pair in datasets)
+            {
+                int[] array = pair.Value.ToArray();
+                stopwatch = Stopwatch.StartNew();
+
+                int n = array.Length;
+                for (int i = n / 2 - 1; i >= 0; i--)
+                {
+                    int largest = i;
+                    while (true)
+                    {
+                        int left = 2 * largest + 1;
+                        int right = 2 * largest + 2;
+                        int max = largest;
+
+                        if (left < n && array[left] > array[max]) max = left;
+                        if (right < n && array[right] > array[max]) max = right;
+
+                        if (max != largest)
+                        {
+                            int temp = array[largest];
+                            array[largest] = array[max];
+                            array[max] = temp;
+                            largest = max;
+                        }
+                        else break;
+                    }
+                }
+
+                for (int i = n - 1; i > 0; i--)
+                {
+                    int temp = array[0];
+                    array[0] = array[i];
+                    array[i] = temp;
+
+                    int size = i;
+                    int largest = 0;
+                    while (true)
+                    {
+                        int left = 2 * largest + 1;
+                        int right = 2 * largest + 2;
+                        int max = largest;
+
+                        if (left < size && array[left] > array[max]) max = left;
+                        if (right < size && array[right] > array[max]) max = right;
+
+                        if (max != largest)
+                        {
+                            int temp2 = array[largest];
+                            array[largest] = array[max];
+                            array[max] = temp2;
+                            largest = max;
+                        }
+                        else break;
+                    }
+                }
+
+                stopwatch.Stop();
+                double elapsedMs = stopwatch.Elapsed.TotalMilliseconds;
+                dataGridView2.Rows.Add("HeapSort - " + pair.Key, elapsedMs.ToString("F4") + " ms");
+                chart5.Series[0].Points.AddXY(pair.Key, elapsedMs);
+
+                if (pair.Key == "Random")
+                    dataGridView5.Rows.Add("HeapSort", elapsedMs.ToString("F4") + " ms");
+                else if (pair.Key == "Levemente Asc")
+                    dataGridView4.Rows.Add("HeapSort", elapsedMs.ToString("F4") + " ms");
+            }
+        }
+
+
+        void bubbleSorting()
+        {
+
+            Dictionary<string, List<int>> datasets = new Dictionary<string, List<int>>()
+            {
+                { "Random", allRandoms },
+                { "Levemente Asc", slightlyAscend },
+                { "Levemente Desc", slightlyDescend },
+                { "Ordenado", orderer }
+            };
+
+            foreach (var pair in datasets)
+            {
+                int[] array = pair.Value.ToArray();
+                stopwatch = Stopwatch.StartNew();
+
+                int n = array.Length;
+                for (int i = 0; i < n - 1; i++)
+                {
+                    for (int j = 0; j < n - 1 - i; j++)
+                    {
+                        if (array[j] < array[j + 1])
+                        {
+                            int temp = array[j];
+                            array[j] = array[j + 1];
+                            array[j + 1] = temp;
+                        }
+                    }
+                }
+
+                stopwatch.Stop();
+                double elapsedMs = stopwatch.Elapsed.TotalMilliseconds;
+                dataGridView3.Rows.Add("BubbleSort - " + pair.Key, elapsedMs.ToString("F4") + " ms");
+                chart6.Series[0].Points.AddXY(pair.Key, elapsedMs);
+
+                if (pair.Key == "Random")
+                    dataGridView5.Rows.Add("BubbleSort", elapsedMs.ToString("F4") + " ms");
+                else if (pair.Key == "Levemente Asc")
+                    dataGridView4.Rows.Add("BubbleSort", elapsedMs.ToString("F4") + " ms");
+            }
+        }
+
 
         int[] BubbleSort(int[] inputArray)
         {
